@@ -12,9 +12,23 @@ namespace RealEstate_Dapper_Api.Repositories.CategoryRepository
         {
             _context = context;
         }
+
+        public async void CreateCategory(CreateCategoryDto categoryDto)
+        {
+            string query = "insert into Category (CategoryName, CategoryStatus) values (@categoryName, @categoryStatus)";
+            var parameters = new DynamicParameters();
+            parameters.Add("@categoryName", categoryDto.CategoryName);
+            parameters.Add("@categoryStatus", true);
+            using (var connetion = _context.CreateConnection())
+            {
+                await connetion.ExecuteAsync(query, parameters);
+            }
+
+        }
+
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
-            string query = "Select * Form Category";
+            string query = "Select * From Category";
             using (var connection = _context.CreateConnection())
             {
                 //dapper kullanılan yer
@@ -22,6 +36,6 @@ namespace RealEstate_Dapper_Api.Repositories.CategoryRepository
                 return values.ToList();
             }
         }
-        
+
     }
 }
