@@ -19,11 +19,35 @@ namespace RealEstate_Dapper_Api.Repositories.CategoryRepository
             var parameters = new DynamicParameters();
             parameters.Add("@categoryName", categoryDto.CategoryName);
             parameters.Add("@categoryStatus", true);
-            using (var connetion = _context.CreateConnection())
+            using (var connection = _context.CreateConnection())
             {
-                await connetion.ExecuteAsync(query, parameters);
+                await connection.ExecuteAsync(query, parameters);
             }
+             
+        }
 
+        public async void DeleteCategory(int id)
+        {
+            string query = "Delete From Category Where CategoryID=@categoryID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@categoryID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
+        }
+
+        public async void UpdateCategory(UpdateCategoryDto categoryDto)
+        {
+            string query = "Update Category Set CategoryName=@categoryName,CategoryStatus=@categoryStatus where CategoryID=@categoryID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@categoryName", categoryDto.CategoryName);
+            parameters.Add("@categoryStatus", categoryDto.CategoryStatus);
+            parameters.Add("@categoryID", categoryDto.CategoryID);
+            using (var connectiont = _context.CreateConnection())
+            {
+                await connectiont.ExecuteAsync(query, parameters);
+            }
         }
 
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
