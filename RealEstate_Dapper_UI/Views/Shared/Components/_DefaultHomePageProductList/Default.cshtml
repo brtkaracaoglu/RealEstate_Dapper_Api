@@ -1,4 +1,5 @@
 ﻿@model List<RealEstate_Dapper_UI.Dtos.ProductDtos.ResultProductDtos>
+
 <section class="locations-1" id="locations">
     <div class="locations py-5">
         <div class="container py-lg-5 py-md-4 py-2">
@@ -11,16 +12,16 @@
                     <div class="col-lg-4 col-md-6">
                         <a href="property-single.html">
                             <div class="box16">
-                                <div class="rentext-listing-category"><span>Buy</span><span>Rent</span></div>
+                                <div class="rentext-listing-category"><span>Satılıktır</span><span>@item.categoryName</span></div>
                                 <img class="img-fluid" src="~/starter/assets/images/p1.jpg" alt="">
                                 <div class="box-content">
-                                    <h3 class="title">t @item.price</h3>
-                                    <span class="post">51 Merrick Way, Coral Gables, USA</span>
+                                    <h3 class="title">@item.price</h3>
+                                    <span class="post">@item.district - @item.city</span>
                                 </div>
                             </div>
                         </a>
                     </div>
-                }                               
+                }
             </div>
         </div>
     </div>
