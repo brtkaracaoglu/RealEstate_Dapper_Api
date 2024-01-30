@@ -27,27 +27,27 @@ namespace RealEstate_Dapper_Api.Controllers
         public async Task<IActionResult> CreateWhoWeAreDetail(CreateWhoWeAreDetailDto createWhoWeAreDetailDto)
         {
             _whoWeAreDetailRepository.CreateWhoWeAreDetail(createWhoWeAreDetailDto);
-            return Ok("Hakkımızda Başarılı Bir Şekilde Eklendi..");
+            return Ok("Hakkımızda Kısmı Başarılı Bir Şekilde Eklendi..");
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteWhoWeAreDetail(int id)
         {
-            _categoryRepository.DeleteCategory(id);
-            return Ok("Kategori Başarılı Bir Şekilde Silindi");
+            _whoWeAreDetailRepository.DeleteWhoWeAreDetail(id);
+            return Ok("Hakkımızda Kısmı Başarılı Bir Şekilde Silindi");
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
+        public async Task<IActionResult> UpdateWhoWeAreDetail(UpdateWhoWeAreDetailDto updateWhoWeAreDetailDto)
         {
-            _categoryRepository.UpdateCategory(updateCategoryDto);
-            return Ok("Kategori Başarıyla Güncellendi");
+            _whoWeAreDetailRepository.UpdateWhoWeAreDetail(updateWhoWeAreDetailDto);
+            return Ok("Hakkımızda Kısmı Başarıyla Güncellendi");
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCategory(int id)
+        public async Task<IActionResult> GetWhoWeAreDetail(int id)
         {
-            var value = await _categoryRepository.GetCategory(id);
+            var value = await _whoWeAreDetailRepository.GetWhoWeAreDetail(id);
             return Ok(value);
         }
     }
