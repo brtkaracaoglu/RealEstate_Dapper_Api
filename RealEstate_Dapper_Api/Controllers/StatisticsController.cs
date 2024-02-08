@@ -102,6 +102,27 @@ namespace RealEstate_Dapper_Api.Controllers
 
         }
 
+        [HttpGet("OldestBuildingYear")]
+        public IActionResult OldestBuildingYear()
+        {
+            return Ok(_statisticsRepository.OldestBuildingYear());
+
+        }
+
+        [HttpGet("PassiveCategoryCount")]
+        public IActionResult PassiveCategoryCount()
+        {
+            return Ok(_statisticsRepository.PassiveCategoryCount());
+
+        }
+
+        [HttpGet("ProductCount")]
+        public IActionResult ProductCount()
+        {
+            return Ok(_statisticsRepository.ProductCount());
+
+        }
+
 
     }
 }
