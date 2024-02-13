@@ -14,6 +14,7 @@ namespace RealEstate_Dapper_UI.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:44330/api/Services");
             if (responseMessage.IsSuccessStatusCode)
