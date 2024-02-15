@@ -59,7 +59,7 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 
         public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategoryAsync()
         {
-            string query = "SELECT ProductID, Title, Price, City, District, CategoryName,CoverImage,Type,Address FROM Product INNER JOIN Category ON Product.ProductCategory = Category.CategoryID";
+            string query = "SELECT ProductID, Title, Price, City, District, CategoryName,CoverImage,Type,Address,DealOfTheDay FROM Product INNER JOIN Category ON Product.ProductCategory = Category.CategoryID";
             using (var connection = _context.CreateConnection())
             {
                 //dapper kullanılan yer
