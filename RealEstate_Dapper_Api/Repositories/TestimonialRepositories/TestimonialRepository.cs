@@ -17,10 +17,10 @@ namespace RealEstate_Dapper_Api.Repositories.TestimonialRepositories
         {
             string query = "insert into Testimonial (NameSurname,Title,Comment,Status) values (@nameSurname,@title,@comment,@status)";
             var parameters = new DynamicParameters();
-            parameters.Add("@nameSurname", createTestimonialDto.NameSurname);
-            parameters.Add("@title", createTestimonialDto.Title);
-            parameters.Add("@comment", createTestimonialDto.Comment);
-            parameters.Add("@status", createTestimonialDto.Status);
+            parameters.Add("@nameSurname", createTestimonialDto.nameSurname);
+            parameters.Add("@title", createTestimonialDto.title);
+            parameters.Add("@comment", createTestimonialDto.comment);
+            parameters.Add("@status", createTestimonialDto.status);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);
@@ -63,11 +63,11 @@ namespace RealEstate_Dapper_Api.Repositories.TestimonialRepositories
         {
             string query = "Update Testimonial Set NameSurname=@nameSurname,Title=@title,Comment=@comment,Status=@status where TestimonialID=@testimonialID";
             var parameters = new DynamicParameters();
-            parameters.Add("@nameSurname", updateTestimonialDto.NameSurname);
-            parameters.Add("@title", updateTestimonialDto.Title);
-            parameters.Add("@comment", updateTestimonialDto.Comment);
-            parameters.Add("@status", updateTestimonialDto.Status);
-            parameters.Add("@testimonialID", updateTestimonialDto.TestimonialID);
+            parameters.Add("@nameSurname", updateTestimonialDto.nameSurname);
+            parameters.Add("@title", updateTestimonialDto.title);
+            parameters.Add("@comment", updateTestimonialDto.comment);
+            parameters.Add("@status", updateTestimonialDto.status);
+            parameters.Add("@testimonialID", updateTestimonialDto.testimonialID);
 
             using (var connectiont = _context.CreateConnection())
             {
