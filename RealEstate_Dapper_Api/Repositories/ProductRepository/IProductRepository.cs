@@ -9,10 +9,5 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
         void ProductDealOfTheDayStatusChangeToTrue(int id);
         void ProductDealOfTheDayStatusChangeToFalse(int id);
 
-        //void CreateProduct(CreateProductDto createProductDto);
-        //void DeleteProduct(int id);
-        //void UpdateProduct(UpdateProductDto updateProductDto);
-        //Task<GetByIDProductDto> GetProduct(int id);
-
     }
 }
