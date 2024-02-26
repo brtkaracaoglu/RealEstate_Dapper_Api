@@ -62,7 +62,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapHub<SignalHub>("/signalrHub");
+app.MapHub<SignalRHub>("/signalrHub");
 //localhost:1234/swagger/category/index
 //localhost:1234/signalrhub
 app.Run();
