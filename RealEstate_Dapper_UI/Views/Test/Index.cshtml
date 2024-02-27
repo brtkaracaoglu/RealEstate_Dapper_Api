@@ -4,7 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
@@ -17,7 +16,7 @@
                     <div class="card">
                         <script type="text/javascript">
                             $(document).ready(() => {
-                                var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44330/SignalRHub").build();
+                                var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44333/SignalRHub").build();
                                 $("#connstatus").text(connection.state);
 
                                 connection.start().then(() => {
