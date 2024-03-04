@@ -23,7 +23,6 @@ namespace RealEstate_Dapper_UI.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Index(CreateLoginDto createLoginDto)
         {
@@ -38,24 +37,24 @@ namespace RealEstate_Dapper_UI.Controllers
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase
                 });
 
-                if (tokenModel.Token != null)
+                if (tokenModel != null)
                 {
                     JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
                     var token = handler.ReadJwtToken(tokenModel.Token);
                     var claims = token.Claims.ToList();
 
-                    if (tokenModel.Token !=null)
+                    if (tokenModel.Token != null)
                     {
                         claims.Add(new Claim("realestatetoken", tokenModel.Token));
-                        var claimsIdentity =new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
+                        var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
                         var authProps = new AuthenticationProperties
                         {
                             ExpiresUtc = tokenModel.ExpireDate,
                             IsPersistent = true
                         };
 
-                        await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme,new ClaimsPrincipal(claimsIdentity),authProps);
-                        return RedirectToAction("Index", "MyAdverts");
+                        await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
+                        return RedirectToAction("Index", "Employee");
                     }
                 }
             }
